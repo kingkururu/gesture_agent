@@ -1,0 +1,10 @@
+# Daily workflow (no clean needed)
+bazelisk run -c opt //mediapipe/examples/desktop/gesture_agent:gesture_run --define MEDIAPIPE_DISABLE_GPU=1
+
+# Something feels off, light clean
+bazelisk clean
+bazel build //mediapipe/examples/desktop/gesture_agent:gesture_run --define MEDIAPIPE_DISABLE_GPU=1
+
+# Really stuck, nuclear option
+bazelisk clean --expunge
+bazelisk run -c opt //mediapipe/examples/desktop/gesture_agent:gesture_run --define MEDIAPIPE_DISABLE_GPU=1

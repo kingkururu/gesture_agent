@@ -1,0 +1,12 @@
+# Bazel build artifacts
+bazel-*
+/bazel-bin
+/bazel-out
+/bazel-testlogs
+
+# Backup files
+*.bak
+*~
+
+# macOS system files
+.DS_Store
