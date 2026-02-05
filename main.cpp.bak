@@ -1,0 +1,80 @@
+#include <ApplicationServices/ApplicationServices.h>
+
+#include <atomic>
+#include <csignal>
+#include <unistd.h>
+#include <os/log.h>
+
+#include <opencv2/opencv.hpp>
+
+#include "log.hpp"
+
+std::atomic<bool> running(true);
+
+void handle_signal(int) {
+    running = false;
+}
+
+// void move_mouse_relative(int dx, int dy) {
+//     // Get current mouse position
+//     CGEventRef event = CGEventCreate(NULL);
+//     CGPoint cursor = CGEventGetLocation(event);
+//     CFRelease(event);
+
+//     // Calculate new position
+//     cursor.x += dx;
+//     cursor.y += dy;
+
+//     // Post the movement event
+//     CGEventRef moveEvent = CGEventCreateMouseEvent(
+//         NULL, kCGEventMouseMoved, cursor, kCGMouseButtonLeft
+//     );
+//     CGEventPost(kCGHIDEventTap, moveEvent);
+//     CFRelease(moveEvent);
+// }
+
+int main() {
+    init_logging();
+
+    // Register signal handlers so launchd can stop us cleanly
+    signal(SIGTERM, handle_signal);
+    signal(SIGINT, handle_signal);
+
+    os_log(OS_LOG_DEFAULT, "Gesture agent started");
+    log_info("Gesture agent started");
+    globalTimer.Reset();
+
+    cv::VideoCapture cap(0); // Open default camera
+    if (!cap.isOpened()) {
+        log_error("Could not open video camera!");
+        return -1;
+    }
+
+    while (running) {
+        cv::Mat frame;
+        cap >> frame; // Capture a single frame
+
+        if (!frame.empty()) {
+            // 1. Flip the frame (selfie view is more intuitive for gestures)
+            cv::flip(frame, frame, 1);
+
+            // 2. Convert to RGB (OpenCV uses BGR, MediaPipe needs RGB)
+            cv::Mat frame_rgb;
+            cv::cvtColor(frame, frame_rgb, cv::COLOR_BGR2RGB);
+            
+            log_info("Camera frame captured successfully. Size: " + 
+                    std::to_string(frame.cols) + "x" + std::to_string(frame.rows));
+        }
+        
+        // We don't want to show a window (cv::imshow) because this is a background daemon!
+        // We just want to process the data.
+        usleep(33333); // Run at ~30 FPS
+    }
+
+    globalTimer.End("Total runtime");
+
+    os_log(OS_LOG_DEFAULT, "Gesture agent shutting down");
+    log_info("Gesture agent shutting down");
+    
+    return 0;
+}

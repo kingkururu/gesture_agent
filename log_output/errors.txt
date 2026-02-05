@@ -1,0 +1,1 @@
+[2026-02-04 21:30:48.050] [error_logger] [error] Failed to create hand landmarker: NOT_FOUND: Unable to open file at /hand_landmarker.task [MediaPipeTasksStatus='601']
