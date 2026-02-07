@@ -8,6 +8,7 @@
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
+
 #include <queue>
 #include <mutex>
 #include <condition_variable>
@@ -17,6 +18,9 @@
 #include <string_view>
 #include <csignal>
 #include <filesystem>
+#include <iostream>
+
+#include "tools/cpp/runfiles/runfiles.h"
 
 void init_logging();
 void log_info(const std::string& message);

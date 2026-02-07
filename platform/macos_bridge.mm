@@ -1,5 +1,4 @@
 #import "macos_bridge.h"
-#import <ApplicationServices/ApplicationServices.h>
 
 namespace macos {
 
@@ -14,6 +13,16 @@ namespace macos {
 
         CFRelease(down);
         CFRelease(up);
+
+        // int posX = (int)pos.x;
+        // int posY = (int)pos.y;
+
+        // log_info(
+        //     std::string("Simulated mouse click at ")
+        //     + std::to_string(posX)
+        //     + ", "
+        //     + std::to_string(posY)
+        // );      
     }
 
     void swipeLeft() {
