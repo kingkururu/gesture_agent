@@ -1,1 +1,83 @@
-[2026-02-04 21:30:46.525] [info_logger] [info] Gesture agent started
+[2026-02-06 16:46:42.700] [info_logger] [info] Gesture agent started
+[2026-02-06 16:46:42.701] [info_logger] [info] Model path: /Users/student/projects/mediapipe-0.10.11/mediapipe/examples/desktop/gesture_agent/hand_landmarker.task
+[2026-02-06 16:46:44.319] [info_logger] [info] Hand landmarker created successfully.
+[2026-02-06 16:46:44.400] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:44.481] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:44.544] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:44.613] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:44.677] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:44.741] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:44.807] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:44.874] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:44.941] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:45.008] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:45.074] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:45.141] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:45.208] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:45.274] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:45.341] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:45.408] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:45.503] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:45.581] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:45.666] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:45.734] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:45.800] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:45.866] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:45.936] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:46.002] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:46.068] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:46.133] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:46.202] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:46.269] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:46.333] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:46.400] [info_logger] [info] 👍 THUMBS UP DETECTED!
+[2026-02-06 16:46:46.466] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:46.536] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:46.604] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:46.669] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:46.738] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:46.802] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:46.872] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:46.937] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.004] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.071] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.135] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.200] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.268] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.335] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.403] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.468] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.536] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.597] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.669] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.730] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.795] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.862] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:47.929] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.004] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.088] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.167] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.236] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.303] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.368] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.436] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.502] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.568] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.638] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.703] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.771] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.839] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.904] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:48.972] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.038] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.103] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.171] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.239] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.306] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.372] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.436] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.506] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.572] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.641] [info_logger] [info] No thumbs up detected in this frame.
+[2026-02-06 16:46:49.651] [info_logger] [info] Total runtime: 6951.119141ms
+[2026-02-06 16:46:49.651] [info_logger] [info] Gesture agent shutting down

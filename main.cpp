@@ -14,7 +14,7 @@
 
 #include "tools/cpp/runfiles/runfiles.h" 
 
-#include "log/log.hpp"
+#include "utils/log.hpp"
 
 using bazel::tools::cpp::runfiles::Runfiles; 
 

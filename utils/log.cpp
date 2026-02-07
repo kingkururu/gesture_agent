@@ -1,4 +1,7 @@
 #include "log.hpp"
+#include "tools/cpp/runfiles/runfiles.h"
+
+#include <iostream>
 
 #if ENABLE_LOGGING
 
@@ -109,9 +112,31 @@ void log_error(const std::string& message) {
 
 // Logging initialization and cleanup
 void init_logging() {
-    std::filesystem::path info_log_file("log_output/info.txt");
-    std::filesystem::path error_log_file("log_output/errors.txt");
-
+    const char* workspace = std::getenv("BUILD_WORKSPACE_DIRECTORY");
+    std::filesystem::path log_dir;
+    
+    if (workspace != nullptr) {
+        // Running with 'bazel run' - use workspace directory + subdirectory path
+        log_dir = std::filesystem::path(workspace) / "mediapipe" / "examples" / "desktop" / "gesture_agent" / "log_output";
+        std::cout << "Using workspace directory for logs" << std::endl;
+    } else {
+        // Running the binary directly - use current directory
+        log_dir = std::filesystem::current_path() / "log_output";
+        std::cout << "Using current directory for logs" << std::endl;
+    }
+    
+    std::cout << "Creating logs in: " << log_dir.string() << std::endl;
+    
+    // Create the directory if it doesn't exist
+    std::filesystem::create_directories(log_dir);
+    
+    std::filesystem::path info_log_file = log_dir / "info.txt";
+    std::filesystem::path error_log_file = log_dir / "errors.txt";
+    
+    // Your spdlog initialization here
+    // auto info_logger = spdlog::basic_logger_mt("info", info_log_file.string());
+    // auto error_logger = spdlog::basic_logger_mt("error", error_log_file.string());
+        
     auto info_console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
     auto error_console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
 

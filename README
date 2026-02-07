@@ -8,3 +8,19 @@ bazel build //mediapipe/examples/desktop/gesture_agent:gesture_run --define MEDI
 # Really stuck, nuclear option
 bazelisk clean --expunge
 bazelisk run -c opt //mediapipe/examples/desktop/gesture_agent:gesture_run --define MEDIAPIPE_DISABLE_GPU=1
+
+/gesture_agent
+├── BUILD
+├── main.cpp                <-- Entry point (Orchestrator)
+├── core/
+│   ├── gesture_engine.cpp  <-- Logic: "Is this a swipe?"
+│   ├── gesture_engine.hpp
+│   └── gesture_types.h     <-- Shared enums/structs
+├── platform/
+│   ├── macos_bridge.mm     <-- Objective-C++: Core Graphics/Quartz
+│   └── macos_bridge.h      <-- C++ interface for the bridge
+├── utils/
+│   ├── log.cpp             <-- spdlog/fmt wrappers
+│   ├── log.hpp
+│   └── config.h            <-- Constants/thresholds
+└── log_output/             <-- Log output directed here

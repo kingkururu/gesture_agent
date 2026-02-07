@@ -10,3 +10,10 @@ bazel-*
 
 # macOS system files
 .DS_Store
+
+# VS Code
+.vscode/
+
+# Log output files
+log_output/errors.txt
+log_output/info.txt
