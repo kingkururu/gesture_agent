@@ -119,7 +119,7 @@ void process_gesture(
         log_error("Hand detection failed: " + result.status().ToString());
         return;
     }
-
+    
     GestureType gesture = gestureEngine.detect(*result);
 
     if (gesture == lastGesture && gesture != GestureType::NONE) {

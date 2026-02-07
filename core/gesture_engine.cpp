@@ -1,13 +1,14 @@
 #include "gesture_engine.hpp"
 
-using Result =
-    mediapipe::tasks::vision::hand_landmarker::HandLandmarkerResult;
+using Result = mediapipe::tasks::vision::hand_landmarker::HandLandmarkerResult;
 
 GestureType GestureEngine::detect(const Result& result) {
     if (isThumbsUp(result)) {
+        log_info("Thumbs-up detected");
         return GestureType::THUMBS_UP;
+    } else {
+        log_info("No recognized gesture");
     }
-
     return GestureType::NONE;
 }
 

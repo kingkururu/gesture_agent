@@ -1,3 +1,37 @@
-[2026-02-06 21:20:50.290] [info_logger] [info] Gesture agent started
-[2026-02-06 21:20:50.291] [info_logger] [info] Bazel runfiles setup successful
-[2026-02-06 21:20:50.350] [info_logger] [info] Hand landmarker created
+[2026-02-06 22:12:56.446] [info_logger] [info] Gesture agent started
+[2026-02-06 22:12:56.449] [info_logger] [info] Bazel runfiles setup successful
+[2026-02-06 22:12:56.950] [info_logger] [info] Hand landmarker created
+[2026-02-06 22:12:58.697] [info_logger] [info] Webcam opened
+[2026-02-06 22:12:58.991] [info_logger] [info] No recognized gesture
+[2026-02-06 22:12:59.303] [info_logger] [info] No recognized gesture
+[2026-02-06 22:12:59.622] [info_logger] [info] No recognized gesture
+[2026-02-06 22:12:59.918] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:00.226] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:00.523] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:00.942] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:01.099] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:01.268] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:01.432] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:01.596] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:01.764] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:01.764] [info_logger] [info] Gesture confirmed
+[2026-02-06 22:13:01.963] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:02.135] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:02.300] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:02.464] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:02.632] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:02.800] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:02.965] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:03.134] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:03.301] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:03.466] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:03.630] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:03.796] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:03.963] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:04.136] [info_logger] [info] Thumbs-up detected
+[2026-02-06 22:13:04.301] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:04.633] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:04.967] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:05.264] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:05.560] [info_logger] [info] No recognized gesture
+[2026-02-06 22:13:05.860] [info_logger] [info] No recognized gesture

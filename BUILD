@@ -1,14 +1,28 @@
 cc_library(
+    name = "utils",
+    hdrs = ["utils/log.hpp", "utils/config.h"],
+    srcs = ["utils/log.cpp"],
+    includes = ["."],
+    deps = ["@com_github_gabime_spdlog//:spdlog", 
+            "@bazel_tools//tools/cpp/runfiles",  
+    ],
+)
+
+cc_library(
     name = "gesture_core",
     hdrs = [
         "core/gesture_types.h",
         "core/gesture_engine.hpp",
+        "utils/log.hpp",      
+        "utils/config.h",  
     ],
     srcs = [
         "core/gesture_engine.cpp",
+        "utils/log.cpp", 
     ],
     includes = ["."],
     deps = [
+        ":utils",
         "//mediapipe/tasks/cc/vision/hand_landmarker:hand_landmarker",
     ],
 )
