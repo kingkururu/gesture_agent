@@ -1,3 +1,18 @@
+cc_library(
+    name = "gesture_core",
+    hdrs = [
+        "core/gesture_types.h",
+        "core/gesture_engine.hpp",
+    ],
+    srcs = [
+        "core/gesture_engine.cpp",
+    ],
+    includes = ["."],
+    deps = [
+        "//mediapipe/tasks/cc/vision/hand_landmarker:hand_landmarker",
+    ],
+)
+
 objc_library(
     name = "macos_bridge",
     srcs = ["platform/macos_bridge.mm"],
@@ -8,6 +23,7 @@ objc_library(
         "ApplicationServices",
     ],
     deps = [
+        ":gesture_core",
     ],
 )
 
