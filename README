@@ -1,7 +1,7 @@
 Camera → MediaPipe → GestureEngine → GestureType → macOS Bridge → System Action
 
 # Daily workflow (no clean needed)
-bazelisk run -c opt //mediapipe/examples/desktop/gesture_agent:gesture_run --define MEDIAPIPE_DISABLE_GPU=1
+bazelisk run -c opt :gesture_run --define MEDIAPIPE_DISABLE_GPU=1
 
 # Something feels off, light clean
 bazelisk clean

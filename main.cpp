@@ -82,6 +82,59 @@ setup_hand_landmarker(bazel::tools::cpp::runfiles::Runfiles* runfiles) {
     return std::move(hand_landmarker_or_status.value());
 }
 
+cv::Mat capture_and_preprocess(cv::VideoCapture& cap) {
+    cv::Mat frame;
+    cap >> frame;
+    if (frame.empty()) return {};
+
+    cv::flip(frame, frame, 1); // selfie view
+    cv::Mat frame_rgb;
+    cv::cvtColor(frame, frame_rgb, cv::COLOR_BGR2RGB);
+    return frame_rgb;
+}
+
+mediapipe::Image wrap_frame_for_mediapipe(cv::Mat& frame_rgb) {
+    auto image_frame = std::make_shared<mediapipe::ImageFrame>(
+        mediapipe::ImageFormat::SRGB,
+        frame_rgb.cols,
+        frame_rgb.rows,
+        frame_rgb.step,
+        frame_rgb.data,
+        [](uint8_t*) {} // OpenCV owns memory
+    );
+    return mediapipe::Image(image_frame);
+}
+
+void process_gesture(
+    GestureEngine& gestureEngine,
+    GestureType& lastGesture,
+    int& stableFrames,
+    int kTriggerFrames,
+    mediapipe::tasks::vision::hand_landmarker::HandLandmarker* landmarker,
+    mediapipe::Image& mp_image,
+    int64_t frame_timestamp_ms
+) {
+    auto result = landmarker->DetectForVideo(mp_image, frame_timestamp_ms);
+    if (!result.ok()) {
+        log_error("Hand detection failed: " + result.status().ToString());
+        return;
+    }
+
+    GestureType gesture = gestureEngine.detect(*result);
+
+    if (gesture == lastGesture && gesture != GestureType::NONE) {
+        stableFrames++;
+
+        if (stableFrames == kTriggerFrames) {
+            log_info("Gesture confirmed");
+            macos::performGestureAction(gesture);
+        }
+    } else {
+        stableFrames = 0;
+    }
+    lastGesture = gesture;
+}
+
 int main(int argc, char** argv) {
 
     setup_signal_handlers();
@@ -90,72 +143,39 @@ int main(int argc, char** argv) {
     auto runfiles_ptr = setup_bazel_runfiles(argv[0]);
     if (!runfiles_ptr) return -1;
     auto landmarker_ptr = setup_hand_landmarker(runfiles_ptr.get());
+    if (!landmarker_ptr) return -1;
 
     // Open webcam
     cv::VideoCapture cap(0);
     if (!cap.isOpened()) { log_error("Could not open video camera"); return -1; }
+    log_info("Webcam opened");
 
     // Gesture engine setup
     GestureEngine gestureEngine;
     GestureType lastGesture = GestureType::NONE;
-    int stableFrames = gestureEngineConfigs::kStableFrames;
-    constexpr int kTriggerFrames = gestureEngineConfigs::kTriggerFrames; // debounce threshold
-    int64_t frame_timestamp_ms = gestureEngineConfigs::kframeTimestampMs;
+    
+    // Gesture processing variabels (mutable)
+    int stableFrames = 0;
+    int64_t frame_timestamp_ms = 0; 
 
+    // Program loop
     while (running) {
-        cv::Mat frame;
-        cap >> frame;
-
-        if (frame.empty()) {
-            usleep(33333);
+    auto frame_rgb = capture_and_preprocess(cap);
+        if (frame_rgb.empty()) {
+            usleep(33333); // ~33 ms
             continue;
         }
-
-        // Flip for selfie-view gestures
-        cv::flip(frame, frame, 1);
-
-        // Convert BGR → RGB
-        cv::Mat frame_rgb;
-        cv::cvtColor(frame, frame_rgb, cv::COLOR_BGR2RGB);
-
-        // Wrap OpenCV frame for MediaPipe
-        auto image_frame = std::make_shared<mediapipe::ImageFrame>(
-            mediapipe::ImageFormat::SRGB,
-            frame_rgb.cols,
-            frame_rgb.rows,
-            frame_rgb.step,
-            frame_rgb.data,
-            [](uint8_t*) {} // OpenCV owns the memory
+        auto mp_image = wrap_frame_for_mediapipe(frame_rgb);
+        process_gesture(
+            gestureEngine,
+            lastGesture,
+            stableFrames,
+            gestureEngineConfigs::kTriggerFrames,
+            landmarker_ptr.get(),
+            mp_image,
+            frame_timestamp_ms
         );
-
-        mediapipe::Image mp_image(image_frame);
-
-        // Run hand tracking
-        auto result =
-            (landmarker_ptr)->DetectForVideo(mp_image, frame_timestamp_ms);
-
-        if (result.ok()) {
-            GestureType gesture =
-                gestureEngine.detect(*result);
-
-            if (gesture == lastGesture && gesture != GestureType::NONE) {
-                stableFrames++;
-
-                if (stableFrames == kTriggerFrames) {
-                    log_info("Gesture confirmed");
-                    macos::performGestureAction(gesture);
-                }
-            } else {
-                stableFrames = 0;
-            }
-
-            lastGesture = gesture;
-        } else {
-            log_error("Hand detection failed: " +
-                      result.status().ToString());
-        }
-
-        frame_timestamp_ms += 33; // ~30 FPS
+        frame_timestamp_ms += 33; 
         usleep(33333);
     }
 

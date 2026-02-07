@@ -11,9 +11,7 @@ namespace mediapipeConfigs {
 }
 
 namespace gestureEngineConfigs {
-    inline constexpr int kStableFrames = 0;
     inline constexpr float kTriggerFrames = 5;
-    inline constexpr int64_t kframeTimestampMs = 0;
 }
 
 
