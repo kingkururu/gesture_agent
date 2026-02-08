@@ -124,9 +124,7 @@ void process_gesture(
 
     if (gesture == lastGesture && gesture != GestureType::NONE) {
         stableFrames++;
-
-        if (stableFrames == kTriggerFrames) {
-            log_info("Gesture confirmed");
+        if (stableFrames > kTriggerFrames && (stableFrames - kTriggerFrames) % 3 == 0) {
             macos::performGestureAction(gesture);
         }
     } else {
@@ -160,7 +158,7 @@ int main(int argc, char** argv) {
 
     // Program loop
     while (running) {
-    auto frame_rgb = capture_and_preprocess(cap);
+        auto frame_rgb = capture_and_preprocess(cap);
         if (frame_rgb.empty()) {
             usleep(33333); // ~33 ms
             continue;

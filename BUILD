@@ -35,9 +35,17 @@ objc_library(
         "CoreGraphics",
         "CoreFoundation",
         "ApplicationServices",
+        "Cocoa",
+        "IOKit",
     ],
     deps = [
         ":gesture_core",
+    ],
+    linkopts = [
+        "-framework Cocoa",
+        "-framework ApplicationServices",
+        "-framework IOKit",
+        "-framework CoreGraphics",
     ],
 )
 

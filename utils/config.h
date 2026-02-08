@@ -11,7 +11,7 @@ namespace mediapipeConfigs {
 }
 
 namespace gestureEngineConfigs {
-    inline constexpr float kTriggerFrames = 5;
+    inline constexpr float kTriggerFrames = 3;
 }
 
 

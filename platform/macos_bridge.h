@@ -1,6 +1,12 @@
 #pragma once
 
 #include <ApplicationServices/ApplicationServices.h>
+#include <IOKit/hidsystem/ev_keymap.h>  
+#include <CoreGraphics/CoreGraphics.h>
+
+#ifdef __OBJC__
+#import <Cocoa/Cocoa.h>
+#endif
 
 #include "core/gesture_types.h"
 #include "utils/log.hpp"
